@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xmu.wordkeeper.mapper.PunchMapper">
+
+    <!--Punch类与db表的映射-->
+    <resultMap id="Punch" type="Punch">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="date" property="date"/>
+        <result column="nums" property="nums"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="is_deleted" property="isDeleted"/>
+    </resultMap>
+
+    <!--插入新记录-->
+    <insert id="insertPunch" parameterType="Punch" useGeneratedKeys="true" keyProperty="id">
+        insert into punch (
+            user_id,
+            date,
+            nums,
+            gmt_create,
+            gmt_modified,
+            is_deleted
+        )
+        values (
+            #{userId},
+            #{date},
+            #{nums},
+            #{gmtCreate},
+            #{gmtModified},
+            #{isDeleted}
+        )
+    </insert>
+
+    <!--根据主键删除单条记录-->
+    <update id="deletePunchById" parameterType="Integer">
+        update punch
+        set is_deleted = 1
+        where id = #{id}
+    </update>
+
+    <!--更新单条记录-->
+    <update id="updatePunch" parameterType="Punch">
+        update punch
+        <trim prefix="set" suffixOverrides="," suffix=" where id = #{id} and is_deleted = 0">
+            <if test="userId!=null">
+                user_id = #{userId},
+            </if>
+            <if test="date!=null">
+                date = #{date},
+            </if>
+            <if test="nums!=null">
+                nums = #{nums},
+            </if>
+            <if test="gmtCreate!=null">
+                gmt_create = #{gmtCreate},
+            </if>
+            <if test="gmtModified!=null">
+                gmt_modified = #{gmtModified},
+            </if>
+        </trim>
+    </update>
+
+    <!--通过主键查询单条记录-->
+    <select id="selectPunchById" resultMap="Punch" parameterType="Integer">
+        select * from punch
+        where id = #{id} and is_deleted = 0
+    </select>
+
+    <!--查询所有记录-->
+    <select id="selectAllPunches" resultMap="Punch">
+        select * from punch
+        where is_deleted = 0
+    </select>
+
+</mapper>

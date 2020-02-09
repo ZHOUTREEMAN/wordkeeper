@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xmu.wordkeeper.mapper.UserMapper">
+
+    <!--User类与db表的映射-->
+    <resultMap id="User" type="User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="user_photo" property="userPhoto"/>
+        <result column="role_id" property="roleId"/>
+        <result column="passw" property="passw"/>
+        <result column="email" property="email"/>
+        <result column="tel" property="tel"/>
+        <result column="vocabulary" property="vocabulary"/>
+        <result column="num_everyday" property="numEveryday"/>
+        <result column="books" property="books"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="is_deleted" property="isDeleted"/>
+    </resultMap>
+
+
+    <!--插入新记录-->
+    <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        insert into user (
+            name,
+            user_photo,
+            role_id,
+            passw,
+            email,
+            tel,
+            vocabulary,
+            num_everyday,
+            books,
+            gmt_create,
+            gmt_modified,
+            is_deleted
+        )
+        values (
+            #{name},
+            #{userPhoto},
+            #{roleId},
+            #{passw},
+            #{email},
+            #{tel},
+            #{vocabulary},
+            #{numEveryday},
+            #{books},
+            #{gmtCreate},
+            #{gmtModified},
+            #{isDeleted}
+        )
+    </insert>
+
+    <!--根据主键删除单条记录-->
+    <update id="deleteUserById" parameterType="Integer">
+        update user
+        set is_deleted = 1
+        where id = #{id}
+    </update>
+
+    <!--更新单条记录-->
+    <update id="updateUser" parameterType="User">
+        update user
+        <trim prefix="set" suffixOverrides="," suffix=" where id = #{id} and is_deleted = 0">
+            <if test="name!=null">
+                name = #{name},
+            </if>
+            <if test="userPhoto!=null">
+                user_photo = #{userPhoto},
+            </if>
+            <if test="roleId!=null">
+                role_id = #{roleId},
+            </if>
+            <if test="passw!=null">
+                passw = #{passw},
+            </if>
+            <if test="email!=null">
+                email = #{email},
+            </if>
+            <if test="tel!=null">
+                tel = #{tel},
+            </if>
+            <if test="vocabulary!=null">
+                vocabulary = #{vocabulary},
+            </if>
+            <if test="numEveryday!=null">
+                num_everyday = #{numEveryday},
+            </if>
+            <if test="books!=null">
+                books = #{books},
+            </if>
+            <if test="gmtCreate!=null">
+                gmt_create = #{gmtCreate},
+            </if>
+            <if test="gmtModified!=null">
+                gmt_modified = #{gmtModified},
+            </if>
+        </trim>
+    </update>
+
+    <!--通过主键查询单条记录-->
+    <select id="selectUserById" resultMap="User" parameterType="Integer">
+        select * from user
+        where id = #{id} and is_deleted = 0
+    </select>
+
+    <!--查询所有记录-->
+    <select id="selectAllUsers" resultMap="User">
+        select * from user
+        where is_deleted = 0
+    </select>
+
+</mapper>
