@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xmu.wordkeeper.mapper.WordBookMapper">
+
+    <!--WordBook类与db表的映射-->
+    <resultMap id="WordBook" type="WordBook">
+        <id column="id" property="id"/>
+        <result column="word" property="word"/>
+        <result column="paraphrase" property="paraphrase"/>
+        <result column="remark" property="remark"/>
+        <result column="user_id" property="userId"/>
+        <result column="date" property="date"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="is_deleted" property="isDeleted"/>
+    </resultMap>
+
+
+    <!--插入新记录-->
+    <insert id="insertWordBook" parameterType="WordBook" useGeneratedKeys="true" keyProperty="id">
+        insert into word_book (
+            word,
+            paraphrase,
+            remark,
+            user_id,
+            date,
+            gmt_create,
+            gmt_modified,
+            is_deleted
+        )
+        values (
+            #{word},
+            #{paraphrase},
+            #{remark},
+            #{userId},
+            #{date},
+            #{gmtCreate},
+            #{gmtModified},
+            #{isDeleted}
+        )
+    </insert>
+
+    <!--根据主键删除单条记录-->
+    <update id="deleteWordBookById" parameterType="Integer">
+        update word_book
+        set is_deleted = 1
+        where id = #{id}
+    </update>
+
+    <!--更新单条记录-->
+    <update id="updateWordBook" parameterType="WordBook">
+        update word_book
+        <trim prefix="set" suffixOverrides="," suffix=" where id = #{id} and is_deleted = 0">
+            <if test="word!=null">
+                word = #{word},
+            </if>
+            <if test="paraphrase!=null">
+                paraphrase = #{paraphrase},
+            </if>
+            <if test="remark!=null">
+                remark = #{remark},
+            </if>
+            <if test="userId!=null">
+                user_id = #{userId},
+            </if>
+            <if test="date!=null">
+                date = #{date},
+            </if>
+            <if test="gmtCreate!=null">
+                gmt_create = #{gmtCreate},
+            </if>
+            <if test="gmtModified!=null">
+                gmt_modified = #{gmtModified},
+            </if>
+        </trim>
+    </update>
+
+    <!--通过主键查询单条记录-->
+    <select id="selectWordBookById" resultMap="WordBook" parameterType="Integer">
+        select * from word_book
+        where id = #{id} and is_deleted = 0
+    </select>
+
+    <!--查询所有记录-->
+    <select id="selectAllWordBooks" resultMap="WordBook">
+        select * from word_book
+        where is_deleted = 0
+    </select>
+
+</mapper>

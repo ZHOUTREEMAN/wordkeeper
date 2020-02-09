@@ -9,6 +9,7 @@ import com.xmu.wordkeeper.util.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import com.xmu.wordkeeper.service.*;
+import com.xmu.wordkeeper.domain.*;
 
 
 @RestController
@@ -21,10 +22,10 @@ public class UserController {
 
     @PostMapping("/login")
     public Object login(HttpServletRequest request,
-                        @RequestParam String userame,
+                        @RequestParam String userName,
                         @RequestParam String passW)
     {
-        int result=userService.login(userame,passW);
+        int result=userService.login(userName,passW);
         if(result==1)
             return ResponseUtil.ok();
         else
@@ -41,12 +42,12 @@ public class UserController {
             return ResponseUtil.ok(result);
     }
 
-    @PutMapping("/user/set")
+    @PutMapping("/user")
     public Object setUser(@RequestBody User user)
     {
-        int result=userService.UpdateUser(user);
-        if(result==1)
-            return ResponseUtil.ok(user);
+        User result=userService.UpdateUser(user);
+        if(result!=null)
+            return ResponseUtil.ok(result);
         else
             return ResponseUtil.fail();
     }
@@ -54,7 +55,27 @@ public class UserController {
     @GetMapping("/user")
     public Object findUser(@RequestParam Integer userId)
     {
+        User result=userService.findUser(userId);
+        if(result!=null)
+            return ResponseUtil.ok(result);
+        else
+            return ResponseUtil.fail();
+    }
 
+    @GetMapping("/userList")
+    public Object findUserList()
+    {
+        return ResponseUtil.ok(userService.findUserList());
+    }
+
+    @DeleteMapping("/user")
+    public Object delUser(@RequestParam Integer userId)
+    {
+        int result=userService.delUser(userId);
+        if(result==1)
+            return ResponseUtil.ok();
+        else
+            return ResponseUtil.fail();
     }
 
 
