@@ -24,7 +24,7 @@ public class PunchDao {
      * @param punch 待添加 punch
      * @return 操作状态码
      */
-    int insertPunch(Punch punch)
+    public int insertPunch(Punch punch)
     {
         punch.setGmtCreate(LocalDateTime.now());
         punch.setGmtModified(LocalDateTime.now());
@@ -39,7 +39,7 @@ public class PunchDao {
      * @param id 主键
      * @return 操作状态码
      */
-    int deletePunchById(Integer id)
+    public int deletePunchById(Integer id)
     {
         Punch punch = punchMapper.selectPunchById(id);
         if(null != punch)
@@ -57,7 +57,7 @@ public class PunchDao {
      * @param punch 待更新 punch
      * @return 操作状态码
      */
-    int updatePunch(Punch punch)
+    public int updatePunch(Punch punch)
     {
         Punch temp = punchMapper.selectPunchById(punch.getId());
         if(null != temp)
@@ -75,7 +75,7 @@ public class PunchDao {
      * @param id 主键
      * @return Punch
      */
-    Punch selectPunchById(Integer id)
+    public Punch selectPunchById(Integer id)
     {
         return punchMapper.selectPunchById(id);
     }
@@ -85,7 +85,7 @@ public class PunchDao {
      *
      * @return Punch列表
      */
-    List<Punch> selectAllPunches()
+    public List<Punch> selectAllPunches()
     {
         return punchMapper.selectAllPunches();
     }

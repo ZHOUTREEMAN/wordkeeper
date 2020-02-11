@@ -47,6 +47,13 @@ public interface UserMapper {
      * @return User
      */
     User selectUserById(Integer id);
+    /**
+     * 通过用户名查询 User
+     *
+     * @param name 用户名
+     * @return User
+     */
+    User selectUserByName(String name);
 
     /**
      * 查询所有 User

@@ -24,7 +24,7 @@ public class UserDao {
      * @param user 待添加用户
      * @return 操作状态码
      */
-    int insertUser(User user)
+    public int insertUser(User user)
     {
         user.setGmtCreate(LocalDateTime.now());
         user.setGmtModified(LocalDateTime.now());
@@ -39,7 +39,7 @@ public class UserDao {
      * @param id 主键
      * @return 操作状态码
      */
-    int deleteUserById(Integer id)
+    public int deleteUserById(Integer id)
     {
         User user = userMapper.selectUserById(id);
         if(null != user)
@@ -57,7 +57,7 @@ public class UserDao {
      * @param user 待更新用户
      * @return 操作状态码
      */
-    int updateUser(User user)
+    public int updateUser(User user)
     {
         User temp = userMapper.selectUserById(user.getId());
         if(null != temp)
@@ -75,17 +75,24 @@ public class UserDao {
      * @param id 主键
      * @return User
      */
-    User selectUserById(Integer id)
+    public User selectUserById(Integer id)
     {
         return userMapper.selectUserById(id);
     }
+    /**
+     * 通过用户名查询 User
+     *
+     * @param name 用户名
+     * @return User
+     */
+    public User selectUserByName(String name){return userMapper.selectUserByName(name);}
 
     /**
      * 查询所有 User
      *
      * @return User列表
      */
-    List<User> selectAllUsers()
+    public List<User> selectAllUsers()
     {
         return userMapper.selectAllUsers();
     }

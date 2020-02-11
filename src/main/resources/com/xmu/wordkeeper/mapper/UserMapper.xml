@@ -105,6 +105,12 @@
         where id = #{id} and is_deleted = 0
     </select>
 
+    <!--通过用户名查询单条记录-->
+    <select id="selectUserByName" resultMap="User" parameterType="String">
+        select * from user
+        where name = #{name} and is_deleted = 0
+    </select>
+
     <!--查询所有记录-->
     <select id="selectAllUsers" resultMap="User">
         select * from user

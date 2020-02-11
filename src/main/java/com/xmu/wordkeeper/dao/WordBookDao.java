@@ -24,7 +24,7 @@ public class WordBookDao {
      * @param wordBook 待添加单词书
      * @return 操作状态码
      */
-    int insertWordBook(WordBook wordBook)
+    public int insertWordBook(WordBook wordBook)
     {
         wordBook.setGmtCreate(LocalDateTime.now());
         wordBook.setGmtModified(LocalDateTime.now());
@@ -39,7 +39,7 @@ public class WordBookDao {
      * @param id 主键
      * @return 操作状态码
      */
-    int deleteWordBookById(Integer id)
+    public int deleteWordBookById(Integer id)
     {
         WordBook wordBook = wordBookMapper.selectWordBookById(id);
         if(null != wordBook)
@@ -57,7 +57,7 @@ public class WordBookDao {
      * @param wordBook 待更新单词书
      * @return 操作状态码
      */
-    int updateWordBook(WordBook wordBook)
+    public int updateWordBook(WordBook wordBook)
     {
         WordBook temp = wordBookMapper.selectWordBookById(wordBook.getId());
         if(null != temp)
@@ -75,7 +75,7 @@ public class WordBookDao {
      * @param id 主键
      * @return WordBook
      */
-    WordBook selectWordBookById(Integer id)
+    public WordBook selectWordBookById(Integer id)
     {
         return wordBookMapper.selectWordBookById(id);
     }
@@ -85,7 +85,7 @@ public class WordBookDao {
      *
      * @return WordBook列表
      */
-    List<WordBook> selectAllWordBooks()
+    public List<WordBook> selectAllWordBooks()
     {
         return wordBookMapper.selectAllWordBooks();
     }
