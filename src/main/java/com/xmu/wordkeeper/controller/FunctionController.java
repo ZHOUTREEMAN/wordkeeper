@@ -10,6 +10,9 @@ import org.springframework.web.client.RestTemplate;
 import javax.crypto.interfaces.PBEKey;
 
 
+/**
+ * @author 32920
+ */
 @RestController
 @RequestMapping("")
 @Validated

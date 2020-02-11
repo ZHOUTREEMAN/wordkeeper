@@ -85,8 +85,8 @@ public class WordBookDao {
      *
      * @return WordBook列表
      */
-    public List<WordBook> selectAllWordBooks()
+    public List<WordBook> selectAllWordBooks(Integer id)
     {
-        return wordBookMapper.selectAllWordBooks();
+        return wordBookMapper.selectAllWordBooks(id);
     }
 }

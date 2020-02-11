@@ -8,47 +8,56 @@ import com.xmu.wordkeeper.util.*;
 
 import java.util.List;
 
+/**
+ * @author 32920
+ */
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
     @Override
     public int login(String userName, String passW) {
         User result=userDao.selectUserByName(userName);
-        if(result==null)
+        if(result==null) {
             return 0;
-        else
+        } else
         {
-            if(MD5Util.encrypt(passW)==result.getPassw())
+            if(MD5Util.encrypt(passW).equals(result.getPassw())) {
                 return 1;
-            else
+            } else {
                 return 0;
+            }
         }
     }
 
     @Override
     public User register(User user) {
         User temp=userDao.selectUserByName(user.getName());
-        if(temp==null)//该用户名未注册过
+        if(temp==null)
+            //该用户名未注册过
         {
-            user.setPassw(MD5Util.encrypt(user.getPassw()));//密码加密存储
+            user.setPassw(MD5Util.encrypt(user.getPassw()));
+            //密码加密存储
             int result=userDao.insertUser(user);
-            if(result==1)
+            if(result==1) {
                 return user;
-            else
+            } else {
                 return null;
+            }
         }
-        else
+        else {
             return null;
+        }
     }
 
 
     @Override
     public User UpdateUser(User user) {
         int result=userDao.updateUser(user);
-        if(result==1)
+        if(result==1) {
             return user;
-        else
+        } else {
             return null;
+        }
     }
 
     @Override

@@ -82,9 +82,9 @@
     </select>
 
     <!--查询所有记录-->
-    <select id="selectAllWordBooks" resultMap="WordBook">
+    <select id="selectAllWordBooks" resultMap="WordBook" parameterType="Integer">
         select * from word_book
-        where is_deleted = 0
+        where user_id = #{id} and is_deleted = 0
     </select>
 
 </mapper>

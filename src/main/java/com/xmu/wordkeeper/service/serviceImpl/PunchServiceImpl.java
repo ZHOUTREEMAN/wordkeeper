@@ -7,16 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+/**
+ * @author 32920
+ */
 public class PunchServiceImpl implements PunchService {
     @Autowired
     private PunchDao punchDao;
     @Override
     public Punch addPunch(Punch punch) {
         int result=punchDao.insertPunch(punch);
-        if(result==1)
+        if(result==1) {
             return punch;
-        else
-        return null;
+        } else {
+            return null;
+        }
     }
 
     @Override
@@ -27,10 +31,11 @@ public class PunchServiceImpl implements PunchService {
     @Override
     public Punch setPunch(Punch punch) {
         int result=punchDao.updatePunch(punch);
-        if(result==1)
+        if(result==1) {
             return punch;
-        else
+        } else {
             return null;
+        }
     }
 
     @Override

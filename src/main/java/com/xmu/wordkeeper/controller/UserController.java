@@ -12,6 +12,9 @@ import com.xmu.wordkeeper.service.*;
 import com.xmu.wordkeeper.domain.*;
 
 
+/**
+ * @author 32920
+ */
 @RestController
 @RequestMapping("")
 @Validated
@@ -26,40 +29,44 @@ public class UserController {
                         @RequestParam String passW)
     {
         int result=userService.login(userName,passW);
-        if(result==1)
+        if(result==1) {
             return ResponseUtil.ok();
-        else
+        } else {
             return ResponseUtil.fail();
+        }
     }
 
     @PostMapping("/register")
     public Object register(@RequestBody User user)
     {
         User result=userService.register(user);
-        if(result==null)
+        if(result==null) {
             return ResponseUtil.fail();
-        else
+        } else {
             return ResponseUtil.ok(result);
+        }
     }
 
     @PutMapping("/user")
     public Object setUser(@RequestBody User user)
     {
         User result=userService.UpdateUser(user);
-        if(result!=null)
+        if(result!=null) {
             return ResponseUtil.ok(result);
-        else
+        } else {
             return ResponseUtil.fail();
+        }
     }
 
     @GetMapping("/user")
     public Object findUser(@RequestParam Integer userId)
     {
         User result=userService.findUser(userId);
-        if(result!=null)
+        if(result!=null) {
             return ResponseUtil.ok(result);
-        else
+        } else {
             return ResponseUtil.fail();
+        }
     }
 
     @GetMapping("/userList")
@@ -72,10 +79,11 @@ public class UserController {
     public Object delUser(@RequestParam Integer userId)
     {
         int result=userService.delUser(userId);
-        if(result==1)
+        if(result==1) {
             return ResponseUtil.ok();
-        else
+        } else {
             return ResponseUtil.fail();
+        }
     }
 
 

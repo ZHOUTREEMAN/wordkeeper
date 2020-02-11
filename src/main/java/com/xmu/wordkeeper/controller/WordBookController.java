@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 
+/**
+ * @author 32920
+ */
 @RestController
 @RequestMapping("")
 @Validated
@@ -23,40 +26,44 @@ public class WordBookController {
     public Object newWordBook(HttpServletRequest request, @RequestBody WordBook wordBook)
     {
         WordBook result=wordBookService.addWordBook(wordBook);
-        if(result==null)
+        if(result==null) {
             return ResponseUtil.fail();
-        else
+        } else {
             return ResponseUtil.ok(result);
+        }
     }
 
     @DeleteMapping("/wordbook")
     public Object delWordBook(@RequestParam Integer id)
     {
         int result=wordBookService.delWordBook(id);
-        if(result==1)
+        if(result==1) {
             return ResponseUtil.ok();
-        else
+        } else {
             return ResponseUtil.fail();
+        }
     }
 
     @PutMapping("/wordbook")
     public Object setWordBook(@RequestBody WordBook wordBook)
     {
         WordBook result=wordBookService.setWordBook(wordBook);
-        if(result==null)
+        if(result==null) {
             return ResponseUtil.fail();
-        else
+        } else {
             return ResponseUtil.ok(result);
+        }
     }
 
     @GetMapping("/wordbook")
     public Object findWordBook(@RequestParam Integer id)
     {
         WordBook result=wordBookService.findWordBook(id);
-        if(result==null)
+        if(result==null) {
             return ResponseUtil.fail();
-        else
+        } else {
             return ResponseUtil.ok(result);
+        }
     }
 
     @GetMapping("/wordbooklist")

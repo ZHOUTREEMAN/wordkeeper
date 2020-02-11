@@ -53,5 +53,5 @@ public interface WordBookMapper {
      *
      * @return WordBook列表
      */
-    List<WordBook> selectAllWordBooks();
+    List<WordBook> selectAllWordBooks(Integer id);
 }

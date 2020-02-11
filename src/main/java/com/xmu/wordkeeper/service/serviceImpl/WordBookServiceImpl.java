@@ -7,16 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+/**
+ * @author 32920
+ */
 public class WordBookServiceImpl implements WordBookService {
     @Autowired
     private WordBookDao wordBookDao;
     @Override
     public WordBook addWordBook(WordBook wordBook) {
         int result=wordBookDao.insertWordBook(wordBook);
-        if(result==1)
-        return wordBook;
-        else
+        if(result==1) {
+            return wordBook;
+        } else {
             return null;
+        }
     }
 
     @Override
@@ -27,10 +31,11 @@ public class WordBookServiceImpl implements WordBookService {
     @Override
     public WordBook setWordBook(WordBook wordBook) {
         int result=wordBookDao.updateWordBook(wordBook);
-        if(result==1)
-        return wordBook;
-        else
+        if(result==1) {
+            return wordBook;
+        } else {
             return null;
+        }
     }
 
     @Override
@@ -40,6 +45,6 @@ public class WordBookServiceImpl implements WordBookService {
 
     @Override
     public List<WordBook> findWordBookList(Integer userId) {
-        return wordBookDao.selectAllWordBooks();
+        return wordBookDao.selectAllWordBooks(userId);
     }
 }

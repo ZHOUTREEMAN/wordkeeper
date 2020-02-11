@@ -11,6 +11,9 @@ import com.xmu.wordkeeper.domain.*;
 import javax.servlet.http.HttpServletRequest;
 
 
+/**
+ * @author 32920
+ */
 @RestController
 @RequestMapping("")
 @Validated
@@ -22,40 +25,44 @@ public class PunchController {
     public Object newPunch(HttpServletRequest request,@RequestBody Punch punch)
     {
         Punch result=punchService.addPunch(punch);
-        if(result==null)
+        if(result==null) {
             return ResponseUtil.fail();
-        else
+        } else {
             return ResponseUtil.ok(result);
+        }
     }
 
     @DeleteMapping("/punch")
     public Object delPunch(@RequestParam Integer id)
     {
         int result=punchService.delPunch(id);
-        if(result==1)
+        if(result==1) {
             return ResponseUtil.ok();
-        else
+        } else {
             return ResponseUtil.fail();
+        }
     }
 
     @PutMapping("/punch")
     public Object setPunch(@RequestBody Punch punch)
     {
         Punch result=punchService.setPunch(punch);
-        if(result!=null)
+        if(result!=null) {
             return ResponseUtil.ok(result);
-        else
+        } else {
             return ResponseUtil.fail();
+        }
     }
 
     @GetMapping("/punch")
     public Object findPunch(@RequestParam Integer id)
     {
         Punch result= punchService.findPunch(id);
-        if(result==null)
+        if(result==null) {
             return ResponseUtil.fail();
-        else
+        } else {
             return ResponseUtil.ok(result);
+        }
     }
 
     @GetMapping("/punchlist")
