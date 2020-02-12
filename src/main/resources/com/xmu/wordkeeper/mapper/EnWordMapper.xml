@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xmu.wordkeeper.mapper.EnWordMapper">
+
+    <!--EnWord类与db表的映射-->
+    <resultMap id="EnWord" type="EnWord">
+        <result column="word" property="word"/>
+        <result column="explain" property="explain"/>
+    </resultMap>
+
+    <!--插入新记录-->
+    <insert id="insertEnWord" parameterType="EnWord">
+        insert into EnWord (
+            word,
+            explain
+        )
+        values (
+            #{word},
+            #{explain}
+        )
+    </insert>
+
+    <!--根据主键删除单条记录-->
+    <update id="deleteEnWordById" parameterType="Integer">
+    </update>
+
+    <!--更新单条记录-->
+    <update id="updateEnWord" parameterType="EnWord">
+    </update>
+
+    <!--通过主键查询单条记录-->
+    <select id="selectEnWordById" resultMap="EnWord" parameterType="String">
+        select * from EnWord
+        where word = #{word}
+    </select>
+
+    <!--查询所有记录-->
+    <select id="selectAllEnWords" resultMap="EnWord">
+        select * from EnWord
+    </select>
+
+</mapper>
