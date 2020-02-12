@@ -17,8 +17,9 @@ import javax.crypto.interfaces.PBEKey;
 @RequestMapping("")
 @Validated
 public class FunctionController {
-    @Autowired
-    private FunctionService functionService;
+    //TODO: 无实现，暂时先注释
+    //@Autowired
+    //private FunctionService functionService;
     @GetMapping("/oralscore")
     public Object getOralScore()
     {

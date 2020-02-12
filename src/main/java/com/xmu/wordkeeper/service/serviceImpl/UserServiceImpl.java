@@ -5,12 +5,14 @@ import com.xmu.wordkeeper.domain.User;
 import com.xmu.wordkeeper.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.xmu.wordkeeper.util.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * @author 32920
  */
+@Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;

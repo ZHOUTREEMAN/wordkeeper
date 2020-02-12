@@ -4,12 +4,14 @@ import com.xmu.wordkeeper.dao.WordBookDao;
 import com.xmu.wordkeeper.domain.WordBook;
 import com.xmu.wordkeeper.service.WordBookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * @author 32920
  */
+@Service
 public class WordBookServiceImpl implements WordBookService {
     @Autowired
     private WordBookDao wordBookDao;

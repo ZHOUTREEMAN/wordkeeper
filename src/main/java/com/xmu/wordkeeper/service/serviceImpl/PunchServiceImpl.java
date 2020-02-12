@@ -4,12 +4,14 @@ import com.xmu.wordkeeper.dao.PunchDao;
 import com.xmu.wordkeeper.domain.Punch;
 import com.xmu.wordkeeper.service.PunchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * @author 32920
  */
+@Service
 public class PunchServiceImpl implements PunchService {
     @Autowired
     private PunchDao punchDao;
