@@ -16,3 +16,21 @@ mybatis:
   configuration:
     #自动将SQL中查出来的带下划线的字段，转换为驼峰标志，再去匹配类中的属性
     map-underscore-to-camel-case: true
+
+logging:
+  #设置日志打印级别
+  level:
+    #Spring框架中的日志级别
+    org.springframework.web: info
+    root: error
+    #自己项目包名下的日志级别
+    com.xmu.wordkeeper.controller: debug
+    com.xmu.wordkeeper.service: debug
+    com.xmu.wordkeeper.dao: debug
+    com.xmu.wordkeeper.mapper: error
+    com.xmu.wordkeeper.domain: debug
+    com.xmu.wordkeeper.util: debug
+  #使用logback日志，取代默认的common日志
+  file:
+    path: .\log
+  config: classpath:logback-spring.xml
