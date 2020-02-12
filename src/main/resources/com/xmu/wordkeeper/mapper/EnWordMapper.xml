@@ -35,8 +35,8 @@
     </select>
 
     <!--查询所有记录-->
-    <select id="selectAllEnWords" resultMap="EnWord">
-        select * from EnWord
+    <select id="selectAllEnWords" resultMap="EnWord" parameterType="Integer">
+        select * from EnWord order by rand() limit 1,#{size}
     </select>
 
 </mapper>

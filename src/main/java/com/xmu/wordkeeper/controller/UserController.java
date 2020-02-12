@@ -18,6 +18,7 @@ import com.xmu.wordkeeper.domain.*;
 @RestController
 @RequestMapping("")
 @Validated
+@CrossOrigin
 public class UserController {
 
     @Autowired
@@ -58,8 +59,8 @@ public class UserController {
         }
     }
 
-    @GetMapping("/user")
-    public Object findUser(@RequestParam Integer userId)
+    @GetMapping("/user/{userId}")
+    public Object findUser(@PathVariable Integer userId)
     {
         User result=userService.findUser(userId);
         if(result!=null) {

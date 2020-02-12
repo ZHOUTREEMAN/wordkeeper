@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("")
 @Validated
+@CrossOrigin
 public class PunchController {
     @Autowired
     private PunchService punchService;
@@ -54,8 +55,8 @@ public class PunchController {
         }
     }
 
-    @GetMapping("/punch")
-    public Object findPunch(@RequestParam Integer id)
+    @GetMapping("/punch/{id}")
+    public Object findPunch(@PathVariable Integer id)
     {
         Punch result= punchService.findPunch(id);
         if(result==null) {

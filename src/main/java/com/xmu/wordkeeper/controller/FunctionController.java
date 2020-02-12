@@ -16,45 +16,87 @@ import javax.crypto.interfaces.PBEKey;
 @RestController
 @RequestMapping("")
 @Validated
+@CrossOrigin
 public class FunctionController {
     //TODO: 无实现，暂时先注释
     //@Autowired
     //private FunctionService functionService;
+
+
+    /**
+     * 获取口语的分数
+     * @return
+     */
     @GetMapping("/oralscore")
     public Object getOralScore()
     {
         return ResponseUtil.ok();
     }
+
+    /**
+     * 获取作文评分
+     * @return
+     */
     @GetMapping("/essayscore")
     public Object getEssayScore()
     {
         return ResponseUtil.ok();
     }
+
+    /**
+     * 获取推荐的阅读文章
+     * @return
+     */
     @GetMapping("/essay")
     public Object getEssay()
     {
         return ResponseUtil.ok();
     }
+
+    /**
+     * 查询字典
+     * @return
+     */
     @GetMapping("/dictionary")
     public Object getDictionary()
     {
         return ResponseUtil.ok();
     }
+
+    /**
+     * 获取记忆计划
+     * @return
+     */
     @GetMapping("/memoryplan")
     public Object getMemoryPlan()
     {
         return ResponseUtil.ok();
     }
+
+    /**
+     * 根据单词生成图片
+     * @return
+     */
     @GetMapping("/picsgen")
     public Object picsGen()
     {
         return ResponseUtil.ok();
     }
+
+    /**
+     * 转化成莎士比亚古典英语
+     * @return
+     */
     @GetMapping("/shakespeare")
     public Object shakespeare()
     {
         return ResponseUtil.ok();
     }
+
+    /**
+     * 英语配音
+     * @return
+     */
     @GetMapping("/vid2speech")
     public Object  vid2speech()
     {

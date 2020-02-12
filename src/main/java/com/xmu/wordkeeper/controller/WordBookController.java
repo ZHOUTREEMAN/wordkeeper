@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("")
 @Validated
+@CrossOrigin
 public class WordBookController {
     @Autowired
     private WordBookService wordBookService;
@@ -55,8 +56,8 @@ public class WordBookController {
         }
     }
 
-    @GetMapping("/wordbook")
-    public Object findWordBook(@RequestParam Integer id)
+    @GetMapping("/wordbook/{id}")
+    public Object findWordBook(@PathVariable Integer id)
     {
         WordBook result=wordBookService.findWordBook(id);
         if(result==null) {

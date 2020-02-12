@@ -51,8 +51,8 @@ public interface EnWordMapper {
 
     /**
      * 查询所有 EnWord
-     *
+     * @param size
      * @return EnWord列表
      */
-    List<EnWord> selectAllEnWords();
+    List<EnWord> selectAllEnWords(Integer size);
 }

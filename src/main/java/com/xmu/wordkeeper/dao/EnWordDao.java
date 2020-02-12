@@ -69,8 +69,8 @@ public class EnWordDao {
      *
      * @return EnWord列表
      */
-    public List<EnWord> selectAllEnWords()
+    public List<EnWord> selectAllEnWords(Integer size)
     {
-        return enWordMapper.selectAllEnWords();
+        return enWordMapper.selectAllEnWords(size);
     }
 }
