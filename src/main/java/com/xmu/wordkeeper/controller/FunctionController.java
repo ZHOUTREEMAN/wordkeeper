@@ -18,11 +18,8 @@ import javax.crypto.interfaces.PBEKey;
 @Validated
 @CrossOrigin
 public class FunctionController {
-    //TODO: 无实现，暂时先注释
-    //@Autowired
-    //private FunctionService functionService;
-
-
+    @Autowired
+    private FunctionService functionService;
     /**
      * 获取口语的分数
      * @return
@@ -77,10 +74,18 @@ public class FunctionController {
      * 根据单词生成图片
      * @return
      */
-    @GetMapping("/picsgen")
-    public Object picsGen()
+    @GetMapping("/picsgen/{word}")
+    public Object picsGen(@PathVariable String word)
     {
-        return ResponseUtil.ok();
+        String result=functionService.picsGen(word);
+        if(result==null)
+        {
+            return ResponseUtil.fail();
+        }
+        else
+        {
+            return ResponseUtil.ok(result);
+        }
     }
 
     /**

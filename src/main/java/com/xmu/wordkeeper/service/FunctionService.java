@@ -7,4 +7,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface FunctionService {
+    /**
+     *根据单词生成图片
+     * @param word
+     * @return
+     */
+    public String picsGen(String word);
 }
+
