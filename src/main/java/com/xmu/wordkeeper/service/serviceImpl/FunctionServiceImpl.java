@@ -18,4 +18,16 @@ public class FunctionServiceImpl implements FunctionService {
             return null;
         }
     }
+
+    @Override
+    public String getDic(Integer type, String word) {
+        if(type==1)
+        {
+            return  WordUtil.getYoudaoDic(word);
+        }
+        else
+        {
+            return WordUtil.getBinyinDic(word);
+        }
+    }
 }

@@ -13,5 +13,7 @@ public interface FunctionService {
      * @return
      */
     public String picsGen(String word);
+
+    public String getDic(Integer type,String word);
 }
 

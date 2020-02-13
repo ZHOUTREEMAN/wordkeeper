@@ -55,9 +55,22 @@ public class FunctionController {
      * @return
      */
     @GetMapping("/dictionary")
-    public Object getDictionary()
+    public Object getDictionary(@RequestParam Integer type,String word)
     {
-        return ResponseUtil.ok();
+        //查询有道词典，支持中英文互查，简单意思
+        if(type==1)
+        {
+            return ResponseUtil.ok(functionService.getDic(1,word));
+        }
+        //查询有道词典，只支持英文查询，返回较为复杂的解释
+        else if(type==2)
+        {
+            return ResponseUtil.ok(functionService.getDic(2,word));
+        }
+        else
+        {
+            return ResponseUtil.fail();
+        }
     }
 
     /**

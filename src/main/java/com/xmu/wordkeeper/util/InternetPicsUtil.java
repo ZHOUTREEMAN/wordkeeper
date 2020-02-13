@@ -16,8 +16,10 @@ public class InternetPicsUtil {
         List<JsoupImageVO> result = new ArrayList<JsoupImageVO>();
         Document document = null;
         try {
-            document = Jsoup.connect(url).data("query", "Java")//请求参数
-                    .userAgent("Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)")//设置urer-agent get();
+            document = Jsoup.connect(url).data("query", "Java")
+                    //请求参数
+                    .userAgent("Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)")
+                    //设置urer-agent get();
                     .timeout(timeOut)
                     .get();
             String xmlSource = document.toString();
