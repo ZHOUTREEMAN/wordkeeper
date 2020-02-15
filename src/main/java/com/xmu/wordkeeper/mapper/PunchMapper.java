@@ -50,8 +50,8 @@ public interface PunchMapper {
 
     /**
      * 查询所有 punch
-     *
+     * @param userId
      * @return Punch列表
      */
-    List<Punch> selectAllPunches();
+    List<Punch> selectAllPunches(Integer userId);
 }

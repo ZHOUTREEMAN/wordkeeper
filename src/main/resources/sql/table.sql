@@ -64,7 +64,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 DROP TABLE IF EXISTS `word_book`;
 CREATE TABLE `word_book` (
-  `id` bigint(9) NOT NULL,
+  `id` bigint(9) NOT NULL AUTO_INCREMENT,
   `word` varchar(255) NOT NULL,
   `paraphrase` varchar(255) NOT NULL,
   `remark` varchar(255) DEFAULT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE `word_book` (
   `date` datetime(2) NOT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
-  `id_deleted` tinyint(1) DEFAULT '0',
+  `is_deleted` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

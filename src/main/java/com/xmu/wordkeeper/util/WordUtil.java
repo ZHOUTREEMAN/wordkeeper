@@ -48,7 +48,6 @@ public class WordUtil {
         Matcher m = compile("\".*\"").matcher(r);
         m.find();
         r=m.group(0).substring(1,m.group(0).length()-1);
-        System.out.println(r);
         return r;
 
     }
@@ -108,8 +107,7 @@ public class WordUtil {
         String result = HttpRequestUtil.sendGet(url,p);
         Matcher m = compile("tgt\":\".*\"").matcher(result);
         m.find();
-        r=m.group(0).substring(10,m.group(0).length()-10);
-        System.out.println(r);
+        r=m.group(0).substring(6,m.group(0).length()-1);
         return r;
     }
 
@@ -129,7 +127,6 @@ public class WordUtil {
         m_image = p_image.matcher(htmlStr);
         while (m_image.find()) {
             img =m_image.group();
-            System.out.println(img);
             m = compile("content\\s*=\\s*.*\\s*\"").matcher(img);
             while (m.find()) {
                 pics.add(m.group(0));
