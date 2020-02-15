@@ -30,4 +30,9 @@ public class FunctionServiceImpl implements FunctionService {
             return WordUtil.getBinyinDic(word);
         }
     }
+
+    @Override
+    public String getEssay() {
+        return WordUtil.getEssay();
+    }
 }

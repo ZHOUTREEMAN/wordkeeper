@@ -14,6 +14,18 @@ public interface FunctionService {
      */
     public String picsGen(String word);
 
+    /**
+     * 字典查询
+     * @param type
+     * @param word
+     * @return
+     */
     public String getDic(Integer type,String word);
+
+    /**
+     * 获取推送的文章
+     * @return 返回的文章是带有html标签的
+     */
+    public String getEssay();
 }
 

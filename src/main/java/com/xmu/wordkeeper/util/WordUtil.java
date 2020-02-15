@@ -61,12 +61,37 @@ public class WordUtil {
     public static String getEssay()
     {
         //TODO:待实现，没找到好的英文文章接口
-        int max=29610,min=1;
-        int ran2 = (int) (Math.random()*(max-min)+min);
-        //int a=Math.random();
-        String r="";
-        String url="http://en-brief.xiao84.com/201808/29610.html";
-        return null;
+        int max=179604,min=1;
+        String r = "";
+        while (true) {
+            int ran2 = (int) (Math.random() * (max - min) + min);
+            int a = ran2 + 1000000;
+            String url = "https://www.globaltimes.cn/content/" + a + ".shtml";
+            String p = null;
+            String result = HttpRequestUtil.sendGet(url, p);
+            Matcher m = compile("<br><br>.*<br><br>").matcher(result);
+            if (!m.find()) {
+                Matcher m1 = compile("<br /><br />.*<br /><br />").matcher(result);
+                try {
+                    r = m1.group(0);
+                    break;
+                }
+                catch (Exception e)
+                {
+                    continue;
+                }
+            } else {
+                try {
+                    r = m.group(0);
+                    break;
+                }
+                catch (Exception e)
+                {
+                    continue;
+                }
+            }
+        }
+        return r;
     }
 
     /**
@@ -83,7 +108,7 @@ public class WordUtil {
         String result = HttpRequestUtil.sendGet(url,p);
         Matcher m = compile("tgt\":\".*\"").matcher(result);
         m.find();
-        r=m.group(0).substring(6,m.group(0).length()-1);
+        r=m.group(0).substring(10,m.group(0).length()-10);
         System.out.println(r);
         return r;
     }
@@ -115,6 +140,7 @@ public class WordUtil {
     public static void main(String[] args) {
         //WordUtil.GetWordPronunciation("small");
         //WordUtil.getBinyinDic("big");
-        WordUtil.getYoudaoDic("小");
+        //WordUtil.getYoudaoDic("小");
+        WordUtil.getEssay();
     }
 }

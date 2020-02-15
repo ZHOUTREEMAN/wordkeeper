@@ -47,7 +47,7 @@ public class FunctionController {
     @GetMapping("/essay")
     public Object getEssay()
     {
-        return ResponseUtil.ok();
+        return ResponseUtil.ok(functionService.getEssay());
     }
 
     /**
