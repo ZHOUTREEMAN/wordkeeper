@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
   <head>
     <title>Elen - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
@@ -26,7 +26,27 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
 	
+
 	<style type="text/css">
+			/*到时候直接搬到一个新的css文件里*/
+			
+			/*公用*/
+			.btn{
+				margin-top:10px;
+				border-radius: 15px;
+				font-size:20px;
+				width: 100%;
+				height: 80%;
+			}
+			.round_icon{
+				width: 80px;
+				height: 80px;
+				border-radius: 50%;
+				background-size:80px 80px;
+				margin:0 auto;
+			}
+			
+			/*登录 注册*/
 			.boxmask{
 				position: fixed;
 				left: 0px;
@@ -73,26 +93,139 @@
 				border-radius: 10px;
 				margin-bottom:10px;
 			}
-			.btn{
-				margin-top:10px;
-				border-radius: 15px;
-				font-size:20px;
-				width: 100%;
-				height: 80%;
-			}
 			.form-group{
 				text-align:center;
 			}
-			.blur{
-				filter:blur(5px);
-				-webkit-filter:blur(5px);
+		
+			/*主界面*/
+			/*选择题*/
+			.header{
+				height:50px;
 			}
+			
+			.question{
+				background-color:rgba(1,1,1,0.0);
+				height:100px;
+				border-radius: 15px;
+				margin-bottom:20px;
+				text-align:center;
+				line-height:100px;
+				font-size:30px;
+				color:rgba(1,1,1,0.8);
+				/* border:2px solid rgba(1,1,1,0.8); */
+			}
+			
+			.answer{
+				height:180px;
+				background-size:cover;
+				color:rgba(1,1,1,0.5);
+				background-color:rgba(1,1,1,0.0);
+				border:2px solid rgba(1,1,1,0.5);
+			}
+			
+			.answer:hover{
+				color:rgba(1,1,1,1);
+				border:2px solid rgba(1,1,1,1);
+			}
+			/*日历*/
+			#calendar{
+				height:300px;
+				background-color:rgba(255,255,255,0.5);
+				border:2px solid rgba(1,1,1,0.5);
+				margin-bottom:20px;
+				border-radius: 15px;
+			}
+			/*关注*/
+			#follow{
+				background-color:rgba(255,255,255,0.5);
+				border:2px solid rgba(1,1,1,0.5);
+				padding:20px 5px 0px 5px;
+				border-radius: 15px;
+			}
+			
+			#follow h5{
+				text-align:center;
+			}
+			
+			#follow ul{
+				padding:0px;
+			}
+			
+			#follow ul li{
+				background-color:rgba(255,255,255,0.5);
+				border:2px solid rgba(1,1,1,0.5);
+				border-radius: 15px;
+				height:90px;
+				padding-top:2px;
+				padding-left:5px;
+				list-style: none;
+				margin-bottom:5px;
+			}
+			
+			.follow_name{
+				width:50%;
+				font-size:24px;
+				position:relative;
+				left:90px;
+				top:-75px;
+				color:black;
+			}
+			
+			.follow_sign{
+				font-size:12px;
+				position:relative;
+				left:90px;
+				top:-92px;
+			}
+			
+			.follow_btn {
+				position: relative;
+				left: 75%;
+				top: -160px;
+				width:20%;
+				height:30px;
+				border-radius: 6px;
+				border:1px solid rgba(1,1,1,0.5);
+			}
+			
+			/*侧边栏*/
+			
+			#me{
+				margin-top:-70px;
+				height:100px;
+			}
+			
+			#me_menu{
+				
+			}
+			
+			#me_menu ul{
+				width:80px;
+				position:relative;
+				left:70%;
+				top:-60px;
+				padding-left:0px;
+				z-index:999;
+			}
+			
+			#me_menu ul li{
+				list-style: none;
+			}
+			
+			#me_menu ul li button{
+				background-color:white;
+				border:1px solid rgba(1,1,1,0.2);
+				width:80px;
+				height:30px;
+				border-radius: 5px;
+			}
+			
 		</style>
 
   </head>
   <body onload="showloginbox()">
 
-		<div class="boxmask" id='boxmask'>
+		<div class="boxmask" id="boxmask" style="display:none;">
 			<div class="loginbox" id="loginbox">
 				<div id="boxheader1">
 					<p>elen.</p>
@@ -107,7 +240,8 @@
 					  </div>
 					  <div class="row">
 						  <div class="form-group col-md-6">
-							<input type="button" id="loginbtn" value="登 录" class="btn btn-primary py-3 px-5">
+								<!--onclick事件到时候要换掉-->
+								<input type="button" id="loginbtn" value="登 录" onclick="hidebox();" class="btn btn-primary py-3 px-5">
 						  </div>
 						  <div class="form-group col-md-6">
 								<input type="button" value="注 册" onclick="showregbox();" class="btn btn-success py-3 px-5">
@@ -116,7 +250,7 @@
 					</form>
 				  </div>
 			</div>
-			<div class="regbox" id="regbox">
+			<div class="regbox" id="regbox" style="display:none;">
 				<div id="boxheader2">
 					<p>elen.</p>
 				</div>
@@ -146,74 +280,113 @@
 				  </div>
 			</div>
 		</div>
-		<script type="text/javascript">
-			document.getElementById('boxmask').style.display="none";
-			function showloginbox(){
-				document.getElementById('boxmask').style.display="";
-				document.getElementById('loginbox').style.display="";
-				document.getElementById('regbox').style.display="none";
-			}
-			function showregbox(){
-				document.getElementById('loginbox').style.display="none";
-				document.getElementById('regbox').style.display="";
-			}
-			function hidbox(){
-				document.getElementById('boxmask').style.display="none";
-			}
-		</script>
 
 
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+		<!--侧边栏 开始-->
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
 			<h1 id="colorlib-logo"><a href="index.html">elen<span>.</span></a></h1>
+			<div id="me">
+				<button class="round_icon" style="background-image: url(images/author.jpg);" onclick="showmenu()"></button> 
+				<div id="me_menu" style="display:none;">
+					<ul>
+						<!--待添加事件或链接-->
+						<li><button>个人中心</button></li>
+						<li><button>选项2</button></li>
+						<li><button>退出登录</button></li>
+					</ul>
+				</div>
+			</div>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li class="colorlib-active"><a href="index.html">Home</a></li>
-					<li><a href="photography.html">Photography</a></li>
-					<li><a href="travel.html">Travel</a></li>
-					<li><a href="fashion.html">Fashion</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li class="colorlib-active"><a href="index.html">主页</a></li>
+					<li><a href=".html">个人中心</a></li>
+					<li><a href=".html">词汇查询</a></li>
+					<li><a href=".html">词汇学习</a></li>
+					<li><a href=".html">口语评分</a></li>
+					<li><a href=".html">。。。</a></li>
 				</ul>
 			</nav>
 
 			<div class="colorlib-footer">
 				<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 			  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-				<ul>
-					<li><a href="#"><i class="icon-facebook"></i></a></li>
-					<li><a href="#"><i class="icon-twitter"></i></a></li>
-					<li><a href="#"><i class="icon-instagram"></i></a></li>
-					<li><a href="#"><i class="icon-linkedin"></i></a></li>
-				</ul>
-			</div>
-		</aside> <!-- END COLORLIB-ASIDE -->
+			</p></div>
+		</aside> <!-- END COLORLIB-ASIDE 侧边栏 结束-->
 		<div id="colorlib-main">
-			<div class="hero-wrap js-fullheight" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+			<div class="hero-wrap" style="background-image: url(images/about.jpg);" data-stellar-background-ratio="0.5">
 				<div class="overlay"></div>
-				<div class="js-fullheight d-flex justify-content-center align-items-center">
-					<div class="col-md-8 text text-center">
-						<div class="img mb-4" style="background-image: url(images/author.jpg);"></div>
-						<div class="desc">
-							<h2 class="subheading">Hello I'm</h2>
-							<h1 class="mb-4">Elen Henderson</h1>
-							<p class="mb-4">I am A Blogger Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							<p><a href="#" class="btn-custom">More About Me <span class="ion-ios-arrow-forward"></span></a></p>
+				<div class="header"></div>
+				<div class="row">
+					<div class="col-lg-1"></div>
+					<div class="col-lg-5">
+						<div class="question">
+							<p>QuestionWord</p>
+						</div>
+						<div class="row">
+							<div class="col-lg-6">
+								<button type="button" id="answer1" class="btn answer" style="background-image: url(images/image_2.jpg);"></button>
+							</div>
+							<div class="col-lg-6">
+								<button type="button" id="answer2" class="btn answer" style="background-image: url(images/image_6.jpg);"></button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6">
+								<button type="button" id="answer3" class="btn answer" style="background-image: url(images/bg_2.jpg);"></button>
+							</div>
+							<div class="col-lg-6">
+								<button type="button" id="answer4" class="btn answer" style="background-image: url(images/image_9.jpg);"></button>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-1"></div>
+					<div class="col-lg-4">
+						<div id="calendar">
+							<ul>
+								<li></li>
+								
+							</ul>
+						</div>
+						<div id="follow">
+							<h5>关注列表</h5>
+							<ul>
+								<li>
+									<button class="round_icon" style="background-image: url(images/person_1.jpg);"></button> 
+									<p class="follow_name">John</p>
+									<p class="follow_sign">Hello everyone!</p>
+									<button class="follow_btn">关注</button>
+								</li>
+								<li>
+									<button class="round_icon" style="background-image: url(images/person_2.jpg);"></button> 
+									<p class="follow_name">Tom</p>
+									<p class="follow_sign">He hasn't signed yet</p>
+									<button class="follow_btn">关注</button>
+								</li>
+								<li>
+									<button class="round_icon" style="background-image: url(images/person_3.jpg);"></button> 
+									<p class="follow_name">Jackson</p>
+									<p class="follow_sign">Gonna be OK.</p>
+									<button class="follow_btn">关注</button>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>			
+			
 			<section class="ftco-section">
-    	<div class="container">
-    		<div class="row justify-content-center mb-5 pb-2">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Articles</h2>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
-          </div>
-        </div>
-    			
-    </section>
+				<div class="container">
+					<div class="row justify-content-center mb-5 pb-2">
+				  <div class="col-md-7 heading-section text-center ftco-animate">
+					<h2 class="mb-4">Articles</h2>
+					<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+				  </div>
+				</div>
+			</div>
+			</section>
+			
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container px-md-5">
         <div class="row mb-5">
@@ -238,18 +411,6 @@
                 <li><a href="#">July 2018 <span>(2)</span></a></li>
                 <li><a href="#">June 2018 <span>(7)</span></a></li>
               </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-	              </ul>
-	            </div>
             </div>
           </div>
         </div>
@@ -284,9 +445,47 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
-  <!-- <script src="js/google-map.js"></script> -->
   <script src="js/main.js"></script>
+  <!-- <script type="text/javascript">
+		$(function(){
+			var date = new Date();
+			var year = date.getFullYear();
+			var month = date.getMonth()+1;
+			var day = date.getDate();
+			$(".current-date").text(year+"年"+month+"月"+day+"日");
+		})
+  </script> -->
+  <script type="text/javascript">
+		//点击个人头像弹出菜单
+		var menu = document.getElementById('me_menu');
+		function showmenu(){
+			//该函数待修改
+			if(menu.style.display!="block"){
+				menu.style.display="block";
+			}
+			else{
+				menu.style.display="none";
+			}
+		}
+		//登录注册弹框相关
+		function showloginbox(){
+			document.getElementById('boxmask').style.display="";
+			document.getElementById('loginbox').style.display="";
+			document.getElementById('regbox').style.display="none";
+		}
+		function showregbox(){
+			document.getElementById('loginbox').style.display="none";
+			document.getElementById('regbox').style.display="";
+		}
+		function hidebox(){
+			document.getElementById('boxmask').style.display="none";
+		}
+  </script>
+  <script type="text/javascript">
+		
+		
+  </script>
+  
     
   </body>
 </html>
