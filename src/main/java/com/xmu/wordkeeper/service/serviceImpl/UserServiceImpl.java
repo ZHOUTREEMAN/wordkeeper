@@ -33,13 +33,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User register(User user) {
+        User info=user;
         User temp=userDao.selectUserByName(user.getName());
         if(temp==null)
             //该用户名未注册过
         {
-            user.setPassw(MD5Util.encrypt(user.getPassw()));
+            String passw=MD5Util.encrypt(info.getPassw());
+            info.setPassw(passw);
             //密码加密存储
-            int result=userDao.insertUser(user);
+            int result=userDao.insertUser(info);
             if(result==1) {
                 return user;
             } else {
@@ -54,6 +56,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User UpdateUser(User user) {
+        if(user.getPassw()!=null) {
+            String passw=MD5Util.encrypt(user.getPassw());
+            user.setPassw(passw);
+        }
         int result=userDao.updateUser(user);
         if(result==1) {
             return user;

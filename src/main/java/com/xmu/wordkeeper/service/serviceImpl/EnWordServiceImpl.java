@@ -4,12 +4,14 @@ import com.xmu.wordkeeper.dao.EnWordDao;
 import com.xmu.wordkeeper.domain.EnWord;
 import com.xmu.wordkeeper.service.EnWordService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * @author 32920
  */
+@Service
 public class EnWordServiceImpl implements EnWordService {
     @Autowired
     private EnWordDao enWordDao;

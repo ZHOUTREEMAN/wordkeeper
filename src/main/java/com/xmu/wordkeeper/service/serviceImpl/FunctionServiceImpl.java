@@ -2,10 +2,12 @@ package com.xmu.wordkeeper.service.serviceImpl;
 
 import com.xmu.wordkeeper.service.FunctionService;
 import com.xmu.wordkeeper.util.*;
+import org.springframework.stereotype.Service;
 
 /**
  * @author 32920
  */
+@Service
 public class FunctionServiceImpl implements FunctionService {
     @Override
     public String picsGen(String word) {
@@ -29,5 +31,10 @@ public class FunctionServiceImpl implements FunctionService {
         {
             return WordUtil.getBinyinDic(word);
         }
+    }
+
+    @Override
+    public String getEssay() {
+        return WordUtil.getEssay();
     }
 }

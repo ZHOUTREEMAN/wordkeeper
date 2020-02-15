@@ -85,8 +85,8 @@ public class PunchDao {
      *
      * @return Punch列表
      */
-    public List<Punch> selectAllPunches()
+    public List<Punch> selectAllPunches(Integer userId)
     {
-        return punchMapper.selectAllPunches();
+        return punchMapper.selectAllPunches(userId);
     }
 }

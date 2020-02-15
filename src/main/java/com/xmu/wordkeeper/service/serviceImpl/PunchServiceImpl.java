@@ -17,6 +17,8 @@ public class PunchServiceImpl implements PunchService {
     private PunchDao punchDao;
     @Override
     public Punch addPunch(Punch punch) {
+        List<Punch> temp = punchDao.selectAllPunches(punch.getUserId());
+        punch.setNums(temp.size()+1);
         int result=punchDao.insertPunch(punch);
         if(result==1) {
             return punch;
@@ -47,6 +49,6 @@ public class PunchServiceImpl implements PunchService {
 
     @Override
     public List<Punch> findPunchList(Integer userId) {
-        return punchDao.selectAllPunches();
+        return punchDao.selectAllPunches(userId);
     }
 }
