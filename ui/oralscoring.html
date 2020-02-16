@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
   <head>
-    <title>口语评分-网站名</title>
+    <title>口语评分-WordKeeper</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -26,138 +26,105 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/daoo-custom.css"/>
   </head>
   <body>
 
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-			<h1 id="colorlib-logo"><a href="index.html">网站名<span>.</span></a></h1>
+			<h1 id="colorlib-logo"><a href="index.html">WordKeeper<span>.</span></a></h1>
+			<div id="me">
+				<button class="round_icon" style="background-image: url(images/author.jpg);" onclick="showmenu()"></button> 
+				<div id="me_menu" style="display:none;">
+					<ul>
+						<!--待添加事件或链接-->
+						<li><button>每日打卡</button></li>
+						<li><button>退出登录</button></li>
+					</ul>
+				</div>
+			</div>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
 					<li><a href="index.html">主页</a></li>
-					<li><a href="login.html">个人中心</a></li>
+					<li><a href=".html">个人中心</a></li>
+					<li><a href=".html">词汇查询</a></li>
 					<li><a href="wordlearning.html">词汇学习</a></li>
+					<li><a href="newword.html">我的生词</a></li>
 					<li class="colorlib-active"><a href="oralscoring.html">口语评分</a></li>
-					<li><a href="index.html">待添加项</a></li>
-					<li><a href="index.html">待添加项</a></li>
 				</ul>
 			</nav>
 
 			<div class="colorlib-footer">
 				<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 			  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-			</div>
+			</p></div>
 		</aside> <!-- END COLORLIB-ASIDE -->
 		<div id="colorlib-main">
 		
 			<div class="hero-wrap js-fullheight" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
 				<div class="overlay"></div>
-				<div class="sidebar-box ftco-animate">
-					<h2 class="sidebar-heading">口语评分</h2>
-					<p>上传一段口语录音，我们将对其进行打分。</p>
-				</div>
-				<div class="sidebar-box ftco-animate">
-						<div class="col-lg-4">
-							<input type="submit" value="上传录音" class="btn btn-primary py-3 px-5">
+				<section class="ftco-section">
+					<div class="container">
+						<div class="row justify-content-center mb-5 pb-2" style="margin-bottom:0px !important;">
+						  <div class="col-md-7 heading-section text-center ftco-animate">
+							<h2 class="mb-4">口语评分</h2>
+							<p>上传一段口语录音，我们将对其进行打分</p>
+						  </div>
 						</div>
-				</div>
-				<div class="col-lg-8">
-					<h3 class="sidebar-heading">评价</h3>
-					<p>。。。。。。</p>				
-				</div>	
+						<div class="ftco-animate" style="margin:0 auto;width:30%;">
+							<button class="btn btn-primary py-3 px-5" >上传录音</button>
+						</div>
+					</div>
+					<div class="mb-5"></div>
+					<div class="container">
+						<div class="row justify-content-center mb-5 pb-2">
+						  <div class="col-md-7 heading-section text-center ftco-animate">
+							<h2 class="mb-4">我们的评价</h2>
+							<p>请先上传录音哦</p>
+						  </div>
+						</div>
+					</div>
+				</section>
 			</div>
 			
 			
 			
-	    		<div class="col-lg-4 sidebar ftco-animate">
-				<!--
-	            <div class="sidebar-box">
-	              <form action="#" class="search-form">
-	                <div class="form-group">
-	                  <span class="icon icon-search"></span>
-	                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
-	                </div>
-	              </form>
-	            </div>
-				-->
-	            <div class="sidebar-box ftco-animate">
-	            	<h3 class="sidebar-heading">Categories</h3>
-	              <ul class="categories">
-	                <li><a href="#">Fashion <span>(6)</span></a></li>
-	                <li><a href="#">Technology <span>(8)</span></a></li>
-	                <li><a href="#">Travel <span>(2)</span></a></li>
-	                <li><a href="#">Food <span>(2)</span></a></li>
-	                <li><a href="#">Photography <span>(7)</span></a></li>
-	              </ul>
-	            </div>
-<!--
-							<div class="sidebar-box subs-wrap img" style="background-image: url(images/bg_1.jpg);">
-								<div class="overlay"></div>
-								<h3 class="mb-4 sidebar-heading">Newsletter</h3>
-								<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia</p>
-	              <form action="#" class="subscribe-form">
-	                <div class="form-group">
-	                  <input type="text" class="form-control" placeholder="Email Address">
-	                  <input type="submit" value="Subscribe" class="mt-2 btn btn-white submit">
-	                </div>
-	              </form>
-	            </div>
--->
-
-	          </div><!-- END COL -->
-	    		</div>
-	    	</div>
-	    </section>
+	    		<!-- END COL -->
 	    <footer class="ftco-footer ftco-bg-dark ftco-section">
-	      <div class="container px-md-5">
-	        <div class="row mb-5">
-	          <div class="col-md">
-	            <div class="ftco-footer-widget mb-4 ml-md-4">
-	              <h2 class="ftco-heading-2">Category</h2>
-	              <ul class="list-unstyled categories">
-	                <li><a href="#">Photography <span>(6)</span></a></li>
-	                <li><a href="#">Fashion <span>(8)</span></a></li>
-	                <li><a href="#">Technology <span>(2)</span></a></li>
-	                <li><a href="#">Travel <span>(2)</span></a></li>
-	              </ul>
-	            </div>
-	          </div>
-	          <div class="col-md">
-	             <div class="ftco-footer-widget mb-4">
-	              <h2 class="ftco-heading-2">Archives</h2>
-	              <ul class="list-unstyled categories">
-	              	<li><a href="#">October 2018 <span>(6)</span></a></li>
-	                <li><a href="#">September 2018 <span>(6)</span></a></li>
-	                <li><a href="#">August 2018 <span>(8)</span></a></li>
-	                <li><a href="#">July 2018 <span>(2)</span></a></li>
-	                <li><a href="#">June 2018 <span>(7)</span></a></li>
-	              </ul>
-	            </div>
-	          </div>
-	          <div class="col-md">
-	            <div class="ftco-footer-widget mb-4">
-	            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-	            	<div class="block-23 mb-3">
-		              <ul>
-		                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-		                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-		                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-		              </ul>
-		            </div>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="row">
-	          <div class="col-md-12">
+      <div class="container px-md-5">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 class="ftco-heading-2">常用词汇集</h2>
+              <ul class="list-unstyled categories">
+                <li><a href="#">高考英语词汇 <span>(6)</span></a></li>
+                <li><a href="#">四六级英语词汇 <span>(8)</span></a></li>
+                <li><a href="#">考研英语词汇 <span>(2)</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">你可能感兴趣</h2>
+              <ul class="list-unstyled categories">
+              	<li><a href="#">口语练习技巧<span>(6)</span></a></li>
+                <li><a href="#">单词记忆训练<span>(6)</span></a></li>
+                <li><a href="#">高分写作秘籍<span>(8)</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
 
-	            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-	  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-	  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-	          </div>
-	        </div>
-	      </div>
-	    </footer>
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
 		</div><!-- END COLORLIB-MAIN -->
 	</div><!-- END COLORLIB-PAGE -->
 
@@ -179,11 +146,20 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <!--
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  -->
   <script src="js/main.js"></script>
+  <script type="text/javascript">
+		//点击个人头像弹出菜单
+		var menu = document.getElementById('me_menu');
+		function showmenu(){
+			//该函数待修改
+			if(menu.style.display!="block"){
+				menu.style.display="block";
+			}
+			else{
+				menu.style.display="none";
+			}
+		}
+  </script>
     
   </body>
 </html>

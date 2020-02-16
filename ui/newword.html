@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
   <head>
-    <title>词汇学习-WordKeeper</title>
+    <title>我的生词-WordKeeper</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -22,11 +22,14 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-    
+
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/daoo-custom.css"/>
+	
+	<link rel="stylesheet" type="text/css" href="css/table.css">
+	<link href="css/daoo-custom.css" rel="stylesheet">
+	
   </head>
   <body>
 
@@ -35,7 +38,7 @@
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
 			<h1 id="colorlib-logo"><a href="index.html">WordKeeper<span>.</span></a></h1>
 			<div id="me">
-				<button class="round_icon" style="background-image: url(images/author.jpg);" onclick="showmenu()"></button> 
+				<button class="round_icon" style="background-image: url(images/author.jpg);" onclick="showmenu()"></button>
 				<div id="me_menu" style="display:none;">
 					<ul>
 						<!--待添加事件或链接-->
@@ -49,8 +52,8 @@
 					<li><a href="index.html">主页</a></li>
 					<li><a href=".html">个人中心</a></li>
 					<li><a href=".html">词汇查询</a></li>
-					<li class="colorlib-active"><a href="wordlearning.html">词汇学习</a></li>
-					<li><a href="newword.html">我的生词</a></li>
+					<li><a href="wordlearning.html">词汇学习</a></li>
+					<li class="colorlib-active"><a href="newword.html">我的生词</a></li>
 					<li><a href="oralscoring.html">口语评分</a></li>
 				</ul>
 			</nav>
@@ -62,31 +65,24 @@
 		</aside> <!-- END COLORLIB-ASIDE -->
 		<div id="colorlib-main">
 		
-			<div class="hero-wrap js-fullheight" style="background-image: url(images/image_9.jpg);" data-stellar-background-ratio="0.5">
+			<div class="hero-wrap " style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
 				<div class="overlay"></div>
+				
 				<section class="ftco-section">
 					<div class="container">
-						<div class="row justify-content-center mb-5 pb-2">
+						<div class="row justify-content-center  pb-2">
 						  <div class="col-md-7 heading-section text-center ftco-animate">
-							<h2 class="mb-4">词汇学习</h2>
-							<p>输入一个单词列表或一段英语文本，<br/>我们将帮助你对其中的词汇进行学习与强化</p>
+							<h2 class="mb-4">我的生词列表</h2>
+							<p>这里记录了你对每个学习中的单词的掌握程度</p>
 						  </div>
 						</div>
-						<div class="ftco-animate" style="margin:0 auto;width:60%;">
-							<textarea class="col" rows="5" autocapitalize="off" placeholder="在此输入需要学习的词汇列表或文本"></textarea>
-						</div>
-						<div class="ftco-animate" style="margin:0 auto;width:30%;">
-							<button class="btn btn-primary py-3 px-5" >开始学习</button>
-						</div>
 					</div>
-					<div class="mb-5"></div>
 				</section>
-			</div>
-			
-			
-			
-	    		<!-- END COL -->
-	    <footer class="ftco-footer ftco-bg-dark ftco-section">
+               <div class="box1 ftco-section">
+					<div id="histroyBox"></div>
+				</div>
+	    	</div>
+			 <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container px-md-5">
         <div class="row mb-5">
           <div class="col-md">
@@ -155,6 +151,37 @@
 			}
 		}
   </script>
-    
+  	<!-- <script type="text/javascript" src="js/back-endPage.js"></script> --> <!-- 后台分页 -->
+    <script type="text/javascript" src="js/front-endPage.js"></script><!-- 前台分页 -->
+    <script type="text/javascript" src="js/shujv2.js"></script>
+  <script type="text/javascript">
+    //前台分页的样子
+    $('#histroyBox').CJJTable({
+       'title':["单词","释义","熟悉度","添加日期"],//thead中的标题 必填
+       'body':["word","interpretation","mastery","createDate"],//tbody td 取值的字段 必填
+       'display':[1,1,1,1],//隐藏域，1显示，2隐藏 必填
+       'pageNUmber':10,//每页显示的条数 选填
+       'pageLength':data.length,//选填
+       'url':data,//数据源 必填
+       dbTrclick:function(e){//双击tr事件
+        alert(e.find('.taskCode').html())
+       }
+    });
+    //后台分页的样子
+    /*$('#histroyBox').CJJTable({
+        'title':["单词","释义","熟悉度","添加日期"],//thead中的标题 必填
+        'body':["word","interpretation","mastery","createDate"],//tbody td 取值的字段 必填
+        'display':[1,1,1,1],//隐藏域，1显示，2隐藏 必填
+        'pageJson':{
+            "taskId":528710,
+            "pageSize":100,//ajax请求参数中的每页展示数量 选填
+            "token":"yJUmunFeG3REqisYAmCfeA"
+        },
+        'url':'/api/quoted/quotedList',//数据源 必填
+        dbTrclick:function(that){ //双击tr事件
+            alert(that.find('.contactName').html())
+        }
+    });*/
+</script>
   </body>
 </html>
