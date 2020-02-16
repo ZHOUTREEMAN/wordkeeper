@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <title>我的生词-WordKeeper</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+	
+	<link rel="stylesheet" type="text/css" href="css/table.css">
+	<link href="css/daoo-custom.css" rel="stylesheet">
+	
+  </head>
+  <body>
+
+	<div id="colorlib-page">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
+			<h1 id="colorlib-logo"><a href="index.html">WordKeeper<span>.</span></a></h1>
+			<div id="me">
+				<button class="round_icon" style="background-image: url(images/author.jpg);" onclick="showmenu()"></button>
+				<div id="me_menu" style="display:none;">
+					<ul>
+						<!--待添加事件或链接-->
+						<li><button>每日打卡</button></li>
+						<li><button>退出登录</button></li>
+					</ul>
+				</div>
+			</div>
+			<nav id="colorlib-main-menu" role="navigation">
+				<ul>
+					<li><a href="index.html">主页</a></li>
+					<li><a href=".html">个人中心</a></li>
+					<li><a href=".html">词汇查询</a></li>
+					<li><a href="wordlearning.html">词汇学习</a></li>
+					<li class="colorlib-active"><a href="newword.html">我的生词</a></li>
+					<li><a href="oralscoring.html">口语评分</a></li>
+				</ul>
+			</nav>
+
+			<div class="colorlib-footer">
+				<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+			  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+			</p></div>
+		</aside> <!-- END COLORLIB-ASIDE -->
+		<div id="colorlib-main">
+		
+			<div class="hero-wrap " style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+				<div class="overlay"></div>
+				
+				<section class="ftco-section">
+					<div class="container">
+						<div class="row justify-content-center  pb-2">
+						  <div class="col-md-7 heading-section text-center ftco-animate">
+							<h2 class="mb-4">我的生词列表</h2>
+							<p>这里记录了你对每个学习中的单词的掌握程度</p>
+						  </div>
+						</div>
+					</div>
+				</section>
+               <div class="box1 ftco-section">
+					<div id="histroyBox"></div>
+				</div>
+	    	</div>
+			 <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container px-md-5">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 class="ftco-heading-2">常用词汇集</h2>
+              <ul class="list-unstyled categories">
+                <li><a href="#">高考英语词汇 <span>(6)</span></a></li>
+                <li><a href="#">四六级英语词汇 <span>(8)</span></a></li>
+                <li><a href="#">考研英语词汇 <span>(2)</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">你可能感兴趣</h2>
+              <ul class="list-unstyled categories">
+              	<li><a href="#">口语练习技巧<span>(6)</span></a></li>
+                <li><a href="#">单词记忆训练<span>(6)</span></a></li>
+                <li><a href="#">高分写作秘籍<span>(8)</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+		</div><!-- END COLORLIB-MAIN -->
+	</div><!-- END COLORLIB-PAGE -->
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
+  <script type="text/javascript">
+		//点击个人头像弹出菜单
+		var menu = document.getElementById('me_menu');
+		function showmenu(){
+			//该函数待修改
+			if(menu.style.display!="block"){
+				menu.style.display="block";
+			}
+			else{
+				menu.style.display="none";
+			}
+		}
+  </script>
+  	<!-- <script type="text/javascript" src="js/back-endPage.js"></script> --> <!-- 后台分页 -->
+    <script type="text/javascript" src="js/front-endPage.js"></script><!-- 前台分页 -->
+    <script type="text/javascript" src="js/shujv2.js"></script>
+  <script type="text/javascript">
+    //前台分页的样子
+    $('#histroyBox').CJJTable({
+       'title':["单词","释义","熟悉度","添加日期"],//thead中的标题 必填
+       'body':["word","interpretation","mastery","createDate"],//tbody td 取值的字段 必填
+       'display':[1,1,1,1],//隐藏域，1显示，2隐藏 必填
+       'pageNUmber':10,//每页显示的条数 选填
+       'pageLength':data.length,//选填
+       'url':data,//数据源 必填
+       dbTrclick:function(e){//双击tr事件
+        alert(e.find('.taskCode').html())
+       }
+    });
+    //后台分页的样子
+    /*$('#histroyBox').CJJTable({
+        'title':["单词","释义","熟悉度","添加日期"],//thead中的标题 必填
+        'body':["word","interpretation","mastery","createDate"],//tbody td 取值的字段 必填
+        'display':[1,1,1,1],//隐藏域，1显示，2隐藏 必填
+        'pageJson':{
+            "taskId":528710,
+            "pageSize":100,//ajax请求参数中的每页展示数量 选填
+            "token":"yJUmunFeG3REqisYAmCfeA"
+        },
+        'url':'/api/quoted/quotedList',//数据源 必填
+        dbTrclick:function(that){ //双击tr事件
+            alert(that.find('.contactName').html())
+        }
+    });*/
+</script>
+  </body>
+</html>

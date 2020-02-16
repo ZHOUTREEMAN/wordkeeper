@@ -78,7 +78,7 @@ textarea{
 	text-align:center;
 }
 
-/*主界面*/
+
 /*选择题*/
 .header{
 	height:50px;
@@ -193,3 +193,6 @@ textarea{
 	height:30px;
 	border-radius: 5px;
 }
+
+/*表格*/
+
