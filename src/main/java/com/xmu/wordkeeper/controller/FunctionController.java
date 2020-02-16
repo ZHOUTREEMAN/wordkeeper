@@ -55,8 +55,9 @@ public class FunctionController {
      * @return
      */
     @GetMapping("/dictionary")
-    public Object getDictionary(@RequestParam Integer type,String word)
+    public Object getDictionary(@RequestParam(required = false) Integer type, @RequestParam("word") String word)
     {
+        type = 1;
         //查询有道词典，支持中英文互查，简单意思
         if(type==1)
         {
