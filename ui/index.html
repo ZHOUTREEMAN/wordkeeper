@@ -26,207 +26,14 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
 	
-
-	<style type="text/css">
-			/*到时候直接搬到一个新的css文件里*/
-			
-			/*公用*/
-			.btn{
-				margin-top:10px;
-				border-radius: 15px;
-				font-size:20px;
-				width: 100%;
-				height: 80%;
-			}
-			.round_icon{
-				width: 80px;
-				height: 80px;
-				border-radius: 50%;
-				background-size:80px 80px;
-				margin:0 auto;
-			}
-			
-			/*登录 注册*/
-			.boxmask{
-				position: fixed;
-				left: 0px;
-				top: 0px;
-				background: #000;
-				width: 100%;
-				height: 100%;
-				background: rgba(0,0,0,0.5);
-				z-index:99999;
-			}
-			.loginbox{
-				position: relative;
-				background: #fff;
-				width: 500px;
-				height: 500px;
-				border-radius: 30px;
-				padding:30px;
-				margin: 5% auto;
-			}
-			.regbox{
-				position: relative;
-				background: #fff;
-				width: 500px;
-				height: 500px;
-				border-radius: 30px;
-				padding:30px;
-				margin: 5% auto;
-			}
-			#boxheader1{
-				height: 150px;
-				text-align:center;
-				font-size:80px;
-			}
-			#boxheader2{
-				height: 100px;
-				text-align:center;
-				font-size:50px;
-			}
-			.loginbox input.form-control{
-				border-radius: 10px;
-				margin-bottom:30px;
-			}
-			.regbox input.form-control{
-				border-radius: 10px;
-				margin-bottom:10px;
-			}
-			.form-group{
-				text-align:center;
-			}
-		
-			/*主界面*/
-			/*选择题*/
-			.header{
-				height:50px;
-			}
-			
-			.question{
-				background-color:rgba(1,1,1,0.0);
-				height:100px;
-				border-radius: 15px;
-				margin-bottom:20px;
-				text-align:center;
-				line-height:100px;
-				font-size:30px;
-				color:rgba(1,1,1,0.8);
-				/* border:2px solid rgba(1,1,1,0.8); */
-			}
-			
-			.answer{
-				height:180px;
-				background-size:cover;
-				color:rgba(1,1,1,0.5);
-				background-color:rgba(1,1,1,0.0);
-				border:2px solid rgba(1,1,1,0.5);
-			}
-			
-			.answer:hover{
-				color:rgba(1,1,1,1);
-				border:2px solid rgba(1,1,1,1);
-			}
-			/*日历*/
-			#calendar{
-				height:300px;
-				background-color:rgba(255,255,255,0.5);
-				border:2px solid rgba(1,1,1,0.5);
-				margin-bottom:20px;
-				border-radius: 15px;
-			}
-			/*关注*/
-			#follow{
-				background-color:rgba(255,255,255,0.5);
-				border:2px solid rgba(1,1,1,0.5);
-				padding:20px 5px 0px 5px;
-				border-radius: 15px;
-			}
-			
-			#follow h5{
-				text-align:center;
-			}
-			
-			#follow ul{
-				padding:0px;
-			}
-			
-			#follow ul li{
-				background-color:rgba(255,255,255,0.5);
-				border:2px solid rgba(1,1,1,0.5);
-				border-radius: 15px;
-				height:90px;
-				padding-top:2px;
-				padding-left:5px;
-				list-style: none;
-				margin-bottom:5px;
-			}
-			
-			.follow_name{
-				width:50%;
-				font-size:24px;
-				position:relative;
-				left:90px;
-				top:-75px;
-				color:black;
-			}
-			
-			.follow_sign{
-				font-size:12px;
-				position:relative;
-				left:90px;
-				top:-92px;
-			}
-			
-			.follow_btn {
-				position: relative;
-				left: 75%;
-				top: -160px;
-				width:20%;
-				height:30px;
-				border-radius: 6px;
-				border:1px solid rgba(1,1,1,0.5);
-			}
-			
-			/*侧边栏*/
-			
-			#me{
-				margin-top:-70px;
-				height:100px;
-			}
-			
-			#me_menu{
-				
-			}
-			
-			#me_menu ul{
-				width:80px;
-				position:relative;
-				left:70%;
-				top:-60px;
-				padding-left:0px;
-				z-index:999;
-			}
-			
-			#me_menu ul li{
-				list-style: none;
-			}
-			
-			#me_menu ul li button{
-				background-color:white;
-				border:1px solid rgba(1,1,1,0.2);
-				width:80px;
-				height:30px;
-				border-radius: 5px;
-			}
-			
-		</style>
+	<link rel="stylesheet" type="text/css" href="css/sign.css"/>
+	<link rel="stylesheet" type="text/css" href="css/daoo-custom.css"/>
 
   </head>
   <body onload="showloginbox()">
 
 		<div class="boxmask" id="boxmask" style="display:none;">
-			<div class="loginbox" id="loginbox">
+			<div class="loginbox" id="loginbox" style="background-image: url(images/bg_1.jpg);">
 				<div id="boxheader1">
 					<p>elen.</p>
 				</div>
@@ -250,7 +57,7 @@
 					</form>
 				  </div>
 			</div>
-			<div class="regbox" id="regbox" style="display:none;">
+			<div class="regbox" id="regbox" style="display:none;background-image: url(images/bg_1.jpg);">
 				<div id="boxheader2">
 					<p>elen.</p>
 				</div>
@@ -293,7 +100,6 @@
 					<ul>
 						<!--待添加事件或链接-->
 						<li><button>个人中心</button></li>
-						<li><button>选项2</button></li>
 						<li><button>退出登录</button></li>
 					</ul>
 				</div>
@@ -304,8 +110,8 @@
 					<li><a href=".html">个人中心</a></li>
 					<li><a href=".html">词汇查询</a></li>
 					<li><a href=".html">词汇学习</a></li>
+					<li><a href=".html">我的生词</a></li>
 					<li><a href=".html">口语评分</a></li>
-					<li><a href=".html">。。。</a></li>
 				</ul>
 			</nav>
 
@@ -317,10 +123,19 @@
 		<div id="colorlib-main">
 			<div class="hero-wrap" style="background-image: url(images/about.jpg);" data-stellar-background-ratio="0.5">
 				<div class="overlay"></div>
-				<div class="header"></div>
-				<div class="row">
-					<div class="col-lg-1"></div>
-					<div class="col-lg-5">
+				
+				<section class="ftco-section">
+					<div class="container">
+						<div class="row justify-content-center mb-5 pb-2">
+						  <div class="col-md-7 heading-section text-center ftco-animate">
+							<h2 class="mb-4">欢迎您的到来，<span>Cocoa</span></h2>
+							<p>我们为您准备了一些小小的测试，动一动鼠标就能搞定</p>
+						  </div>
+						</div>
+					</div>
+					<div class="row">
+					<div class="col-md-1"></div>
+					<div class="col-md-10">
 						<div class="question">
 							<p>QuestionWord</p>
 						</div>
@@ -341,14 +156,11 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-1"></div>
-					<div class="col-lg-4">
-						<div id="calendar">
-							<ul>
-								<li></li>
-								
-							</ul>
-						</div>
+				</div>	
+				</section>
+				
+					<!-- <div class="col-lg-4">
+						<div style="width:200px;height:200px;" id="calendar"></div>
 						<div id="follow">
 							<h5>关注列表</h5>
 							<ul>
@@ -373,43 +185,74 @@
 							</ul>
 						</div>
 					</div>
-				</div>
-			</div>			
+				</div>  -->
+					 
 			
-			<section class="ftco-section">
-				<div class="container">
-					<div class="row justify-content-center mb-5 pb-2">
-				  <div class="col-md-7 heading-section text-center ftco-animate">
-					<h2 class="mb-4">Articles</h2>
-					<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
-				  </div>
-				</div>
-			</div>
-			</section>
+		<section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h2 class="mb-4">每周文章推送</h2>
+            <p>这是我们为您精选的优秀英语文章，来看看吧</p>
+          </div>
+        </div>
+    		<div class="row">
+    			<div class="col-md-4">
+    				<div class="blog-entry ftco-animate">
+							<a href="#" class="img img-2" style="background-image: url(images/image_1.jpg);"></a>
+							<div class="text text-2 pt-2 mt-3">
+								<span class="category mb-3 d-block"><a href="#">2020/2/14</a></span>
+	              <h3 class="mb-4"><a href="#">The Newest Technology On This Year 2019</a></h3>
+	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
+	            </div>
+						</div>
+    			</div>
+    			<div class="col-md-4">
+    				<div class="blog-entry ftco-animate">
+							<a href="#" class="img img-2" style="background-image: url(images/image_2.jpg);"></a>
+							<div class="text text-2 pt-2 mt-3">
+								<span class="category mb-3 d-block"><a href="#">2020/2/2</a></span>
+	              <h3 class="mb-4"><a href="#">What to pack when visiting Sea</a></h3>
+	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
+	             
+	            </div>
+						</div>
+    			</div>
+    			<div class="col-md-4">
+    				<div class="blog-entry ftco-animate">
+							<a href="#" class="img img-2" style="background-image: url(images/image_3.jpg);"></a>
+							<div class="text text-2 pt-2 mt-3">
+								<span class="category mb-3 d-block"><a href="#">2020/1/25</a></span>
+	              <h3 class="mb-4"><a href="#">Awesome Fashion Trend in For Summer</a></h3>
+	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
+	            </div>
+						</div>
+    			</div>	
+    		</div>
+    		</div>
+    	</div>
+    </section>
 			
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container px-md-5">
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">Category</h2>
+              <h2 class="ftco-heading-2">常用词汇集</h2>
               <ul class="list-unstyled categories">
-                <li><a href="#">Photography <span>(6)</span></a></li>
-                <li><a href="#">Fashion <span>(8)</span></a></li>
-                <li><a href="#">Technology <span>(2)</span></a></li>
-                <li><a href="#">Travel <span>(2)</span></a></li>
+                <li><a href="#">高考英语词汇 <span>(6)</span></a></li>
+                <li><a href="#">四六级英语词汇 <span>(8)</span></a></li>
+                <li><a href="#">考研英语词汇 <span>(2)</span></a></li>
               </ul>
             </div>
           </div>
           <div class="col-md">
              <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Archives</h2>
+              <h2 class="ftco-heading-2">你可能感兴趣</h2>
               <ul class="list-unstyled categories">
-              	<li><a href="#">October 2018 <span>(6)</span></a></li>
-                <li><a href="#">September 2018 <span>(6)</span></a></li>
-                <li><a href="#">August 2018 <span>(8)</span></a></li>
-                <li><a href="#">July 2018 <span>(2)</span></a></li>
-                <li><a href="#">June 2018 <span>(7)</span></a></li>
+              	<li><a href="#">口语练习技巧<span>(6)</span></a></li>
+                <li><a href="#">单词记忆训练<span>(6)</span></a></li>
+                <li><a href="#">高分写作秘籍<span>(8)</span></a></li>
               </ul>
             </div>
           </div>
@@ -446,14 +289,13 @@
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
   <script src="js/main.js"></script>
-  <!-- <script type="text/javascript">
-		$(function(){
-			var date = new Date();
-			var year = date.getFullYear();
-			var month = date.getMonth()+1;
-			var day = date.getDate();
-			$(".current-date").text(year+"年"+month+"月"+day+"日");
-		})
+  <script type="text/javascript" src="js/calendar.js"></script>
+ <!--  <script type="text/javascript">
+	$(function(){
+	  //ajax获取日历json数据
+	  var signList=[{"signDay":"09"},{"signDay":"11"},{"signDay":"12"},{"signDay":"13"}];
+	   calUtil.init(signList);
+	});
   </script> -->
   <script type="text/javascript">
 		//点击个人头像弹出菜单
@@ -480,10 +322,6 @@
 		function hidebox(){
 			document.getElementById('boxmask').style.display="none";
 		}
-  </script>
-  <script type="text/javascript">
-		
-		
   </script>
   
     
