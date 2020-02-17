@@ -40,7 +40,7 @@
 				  <div class="col">
 					<form action="#">
 					  <div class="form-group">
-						<input type="text" name="username" class="form-control" placeholder="用户名">
+						<input type="text" name="username11" class="form-control" placeholder="用户名">
 					  </div>
 					  <div class="form-group">
 						<input type="password" name="password" class="form-control" placeholder="密码">
@@ -107,8 +107,8 @@
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
 					<li class="colorlib-active"><a href="index.html">主页</a></li>
-					<li><a href=".html">个人中心</a></li>
-					<li><a href=".html">词汇查询</a></li>
+					<li><a href="profile.html">个人中心</a></li>
+					<li><a href="searching.html">词汇查询</a></li>
 					<li><a href="wordlearning.html">词汇学习</a></li>
 					<li><a href="newword.html">我的生词</a></li>
 					<li><a href="oralscoring.html">口语评分</a></li>
@@ -128,7 +128,7 @@
 					<div class="container">
 						<div class="row justify-content-center mb-5 pb-2">
 						  <div class="col-md-7 heading-section text-center ftco-animate">
-							<h2 class="mb-4">欢迎您的到来，<span>Cocoa</span></h2>
+							<h2 class="mb-4">欢迎您的到来， <span id="username12" style="display:none;">Cocoa</span></h2>
 							<p>我们为您准备了一些小小的测试，动一动鼠标就能搞定</p>
 						  </div>
 						</div>
@@ -137,7 +137,7 @@
 					<div class="col-md-1"></div>
 					<div class="col-md-10">
 						<div class="question">
-							<p>QuestionWord</p>
+							<p>Bridge</p>
 						</div>
 						<div class="row">
 							<div class="col-lg-6">
@@ -314,6 +314,7 @@
 		}
 		function hidebox(){
 			document.getElementById('boxmask').style.display="none";
+			document.getElementById('username12').style.display="";
 		}
   </script>
   </body>

@@ -33,13 +33,13 @@
     <link rel="stylesheet" href="css/flaticon.css" />
     <link rel="stylesheet" href="css/icomoon.css" />
     <link rel="stylesheet" href="css/style.css" />
-    
+
     <link
       href="https://fonts.googleapis.com/css?family=Poppins"
       rel="stylesheet"
     />
     <link href="css/searching.css" rel="stylesheet" />
-
+    <link rel="stylesheet" type="text/css" href="css/daoo-custom.css"/>
     <!-- profile -->
     <link
       rel="stylesheet"
@@ -58,21 +58,26 @@
   <body>
     <div id="colorlib-page">
       <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
-      <aside
-        id="colorlib-aside"
-        role="complementary"
-        class="js-fullheight text-center"
-      >
-        <h1 id="colorlib-logo">
-          <a href="index.html">elen<span>.</span></a>
-        </h1>
+      <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
+        <h1 id="colorlib-logo"><a href="index.html">WordKeeper<span>.</span></a></h1>
+        <div id="me">
+          <button class="round_icon" style="background-image: url(images/author.jpg);" onclick="showmenu()"></button>
+          <div id="me_menu" style="display:none;">
+            <ul>
+              <!--待添加事件或链接-->
+              <li><button>每日打卡</button></li>
+              <li><button>退出登录</button></li>
+            </ul>
+          </div>
+        </div>
         <nav id="colorlib-main-menu" role="navigation">
           <ul>
             <li><a href="index.html">主页</a></li>
             <li class="colorlib-active"><a href="profile.html">个人中心</a></li>
             <li><a href="searching.html">词汇查询</a></li>
-            <li><a href="#">词汇学习</a></li>
-            <li><a href="#">口语评分</a></li>
+            <li><a href="wordlearning.html">词汇学习</a></li>
+            <li><a href="newword.html">我的生词</a></li>
+            <li><a href="oralscoring.html">口语评分</a></li>
           </ul>
         </nav>
 
@@ -88,20 +93,6 @@
             <a href="https://colorlib.com" target="_blank">Colorlib</a>
           </p>
 
-          <ul>
-            <li>
-              <a href="#"><i class="icon-facebook"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="icon-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="icon-instagram"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="icon-linkedin"></i></a>
-            </li>
-          </ul>
         </div>
       </aside>
       <!-- END COLORLIB-ASIDE -->
@@ -148,7 +139,7 @@
                         Elen
                       </h3>
 
-                      <p class="text-muted text-center">软件工程师</p>
+                      <p class="text-muted text-center">在校学生</p>
 
                       <hr />
                       <strong
@@ -171,7 +162,7 @@
                     <hr />
 
                     <strong
-                      ><i class="fas fa-pencil-alt mr-1"></i> 所在行业</strong
+                      ><i class="fas fa-pencil-alt mr-1"></i> 专业</strong
                     >
 
                     <p class="text-muted">
@@ -227,7 +218,7 @@
                                    type="email"
                                    class="form-control"
                                    id="inputName"
-                                   placeholder="用户名..."
+                                   placeholder="Cocoa"
                                  />
                                </div>
                              </div>
@@ -258,7 +249,7 @@
                                    type="email"
                                    class="form-control"
                                    id="inputEmail"
-                                   placeholder="邮箱..."
+                                   placeholder="Cocoa135@163.com"
                                  />
                                </div>
                              </div>
@@ -273,7 +264,7 @@
                                    type="text"
                                    class="form-control"
                                    id="inputName2"
-                                   placeholder="手机..."
+                                   placeholder="136***1731"
                                  />
                                </div>
                              </div>

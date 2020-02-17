@@ -22,6 +22,9 @@
 textarea{
 	border-radius:10px;
 }
+.colorlib-logo{
+    font-size:40px;
+}
 
 /*登录 注册*/
 .boxmask{
