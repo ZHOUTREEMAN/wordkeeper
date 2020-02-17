@@ -100,13 +100,13 @@
             </div>
             <span class="info">ex. Game, Music, Video, Photography</span>
             <div class="row">
-              <div class="col-md-6">
-                <h1 id="searchWord" style="font-size: 40px; line-height: 80px;">
+              <div id="resultText" class="col-md-6">
+                <h1 id="searchWord" style="font-size: 40px; height: 40px;">
                   Keyword
-                  <hr style="text-align: left;width: 100%;margin: 0 auto;border: 0;height: 3px;background: #333;background-image: linear-gradient(to right, rgb(117, 116, 116), rgb(182, 182, 182), rgb(237, 240, 238));"align="left"\>
                 </h1>
-
-                <p id="p1">
+                <hr style="text-align: left;width: 100%;margin: 0 auto;border: 0;height: 3px;background: #333;background-image: linear-gradient(to right, rgb(117, 116, 116), rgb(182, 182, 182), rgb(237, 240, 238));"align="left"\>
+                
+                <p class="meaning" style="margin-top: 20px;">
                   This is a simple hero unit, a simple jumbotron-style component
                   for calling extra attention to featured content or
                   information.
@@ -183,21 +183,25 @@
       p1 = document.getElementById("p1")    
       $("#searchBtn").click(function(){
          $.ajax({
-          url: "http://localhost:8888/dictionary",
+          url: "http://localhost:5555/dictionary",
           type: "get",
           data: $("#search").serialize(),
           success: function f(response) {
             word = $("#search").val()
              $.ajax({ 
-                url: "http://localhost:8888/picsgen/" + word,
+                url: "http://localhost:5555/picsgen/" + word,
                 type: "get",
                 success: function f(response) {
                   source = "url(" + response.data + ")"
                   $("#backgroundImage").css({"background-image": source, "width": "270px", "height": "400px", "background-size" : "cover","background-position": "0px 60px"})
                 }
              });
-            x.innerHTML = $("#search").val() + "<hr style=\"text-align: left;width: 100%;margin: 0 auto;border: 0;height: 3px;background: #333;background-image: linear-gradient(to right, rgb(117, 116, 116), rgb(182, 182, 182), rgb(237, 240, 238));\"align=\"left\"> "
-            p1.innerHTML= response.data
+            soundmark = response.data[0]
+            x.innerHTML = $("#search").val() + "<span style=\"font-family: Segoe UI; font-style:italic; font-size: 13px; color:gray\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + soundmark + "</span>"
+            $("p").remove(".meaning")
+            for(var i=1; i < response.data.length; i++){
+               $("#resultText").append("<p class=\"meaning\" style=\"margin-top: 20px;\">" + response.data[i] + "<\p>")
+            }
           }
       });
    });    

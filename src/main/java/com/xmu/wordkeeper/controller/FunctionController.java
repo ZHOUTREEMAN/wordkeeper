@@ -8,18 +8,24 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.crypto.interfaces.PBEKey;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
  * @author 32920
  */
 @RestController
-@RequestMapping(value = "", produces = {"application/json;charset=UTF-8"})
+@RequestMapping(value = "")
 @Validated
 @CrossOrigin
 public class FunctionController {
     @Autowired
     private FunctionService functionService;
+
+    static Pattern rule = Pattern.compile("[a-z]+\\.\\s");
     /**
      * 获取口语的分数
      * @return
@@ -61,15 +67,24 @@ public class FunctionController {
         //查询有道词典，支持中英文互查，简单意思
         if(type==1)
         {
-            String originalResult = functionService.getDic(1,word);
-            String result = originalResult.substring(originalResult.indexOf("，"), originalResult.length());
-            System.out.println(result);
-            return ResponseUtil.ok(result);
+            return ResponseUtil.ok(functionService.getDic(1,word));
         }
         //查询有道词典，只支持英文查询，返回较为复杂的解释
         else if(type==2)
         {
-            return ResponseUtil.ok(functionService.getDic(2,word));
+            ArrayList<String> stringArrayList = new ArrayList<String>();
+            String originalResult = functionService.getDic(2, word);
+            String result = originalResult.substring(originalResult.indexOf("，")+1, originalResult.length()-1);
+
+            Matcher matcher = rule.matcher(result);
+            int start = 0;
+            while (matcher.find()) {
+                stringArrayList.add(result.substring(start, matcher.start()-1));
+                start = matcher.start();
+            }
+            stringArrayList.add(result.substring(start, result.length()));
+
+            return ResponseUtil.ok(stringArrayList);
         }
         else
         {
