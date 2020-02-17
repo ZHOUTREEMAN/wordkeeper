@@ -26,8 +26,8 @@ public class UserController {
 
     @PostMapping("/login")
     public Object login(HttpServletRequest request,
-                        @RequestParam String userName,
-                        @RequestParam String passW)
+                        @RequestParam("username") String userName,
+                        @RequestParam("password") String passW)
     {
         int result=userService.login(userName,passW);
         if(result==1) {

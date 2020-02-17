@@ -14,7 +14,7 @@ import javax.crypto.interfaces.PBEKey;
  * @author 32920
  */
 @RestController
-@RequestMapping("")
+@RequestMapping(value = "", produces = {"application/json;charset=UTF-8"})
 @Validated
 @CrossOrigin
 public class FunctionController {
@@ -57,11 +57,14 @@ public class FunctionController {
     @GetMapping("/dictionary")
     public Object getDictionary(@RequestParam(required = false) Integer type, @RequestParam("word") String word)
     {
-        type = 1;
+        type = 2;
         //查询有道词典，支持中英文互查，简单意思
         if(type==1)
         {
-            return ResponseUtil.ok(functionService.getDic(1,word));
+            String originalResult = functionService.getDic(1,word);
+            String result = originalResult.substring(originalResult.indexOf("，"), originalResult.length());
+            System.out.println(result);
+            return ResponseUtil.ok(result);
         }
         //查询有道词典，只支持英文查询，返回较为复杂的解释
         else if(type==2)

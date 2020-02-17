@@ -38,9 +38,9 @@
 					<p>WordKeeper.</p>
 				</div>
 				  <div class="col">
-					<form action="#">
+					<form id="loginForm" action="#">
 					  <div class="form-group">
-						<input type="text" name="username11" class="form-control" placeholder="用户名">
+						<input type="text" name="username" class="form-control" placeholder="用户名">
 					  </div>
 					  <div class="form-group">
 						<input type="password" name="password" class="form-control" placeholder="密码">
@@ -48,7 +48,7 @@
 					  <div class="row">
 						  <div class="form-group col-md-6">
 								<!--onclick事件到时候要换掉-->
-								<input type="button" id="loginbtn" value="登 录" onclick="hidebox();" class="btn btn-primary py-3 px-5">
+								<input type="button" id="loginbtn" value="登 录" onclick="login();" class="btn btn-primary py-3 px-5">
 						  </div>
 						  <div class="form-group col-md-6">
 								<input type="button" value="注 册" onclick="showregbox();" class="btn btn-success py-3 px-5">
@@ -315,6 +315,22 @@
 		function hidebox(){
 			document.getElementById('boxmask').style.display="none";
 			document.getElementById('username12').style.display="";
+		}
+      function login(){
+			$.ajax({
+            url: "http://localhost:8888/login",
+            type: "post",
+            data: $("#loginForm").serialize(),
+            success: function f(response) {
+                  if(response.errno == 0) {
+                     hidebox()
+                     alert("登录成功")
+                  }
+                  else {
+                     alert("登录失败")
+                  }
+                }
+         })
 		}
   </script>
   </body>
